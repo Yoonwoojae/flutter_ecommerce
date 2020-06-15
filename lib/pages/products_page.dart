@@ -22,9 +22,10 @@ class ProductsPageState extends State<ProductsPage> {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, AppState>(
-        converter: (store) => store.state,
-        builder: (context, state) {
-          return Text(json.encode(state.user));
-        });
+      converter: (store) => store.state,
+      builder: (context, state) {
+        return state.user != null ? Text(state.user.username) : Text('');
+      },
+    );
   }
 }
